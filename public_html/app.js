@@ -19,7 +19,7 @@ function updateColegios(cols) {
 		console.log(cols[i]);
 		li.appendChild(tn);
 		ul.appendChild(li);
-		
+
 	}
 }
 
@@ -35,6 +35,14 @@ function cargarDB() {
 
 		console.log(contents[0]);
 		updateColegios(contents[0].values);
+		colegioApp.datosColegios = contents[0];
 	};
 	xhr.send();
+}
+
+function actualizarFiltro() {
+
+}
+function ordenarColegios() {
+
 }
