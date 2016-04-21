@@ -35,10 +35,14 @@ function cargarDB() {
 
 		console.log(contents[0]);
 		updateColegios(contents[0].values);
+		colegioApp.datosColegios = contents[0];
 	};
 	xhr.send();
 }
 
 function actualizarFiltro() {
-	
+
+}
+function ordenarColegios() {
+
 }
