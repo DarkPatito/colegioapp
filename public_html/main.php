@@ -33,23 +33,25 @@
 					<div id="formulario-orden">
 						<!--nombre, tipo colegio ,sostenedor, mensualidad, puntaje -->
 						<form>
-              <label for="criterio_orden">Criterio para ordenar</label>
-							<select name="criterio_orden" onchange="ordenarColegios()" id="criterio_orden" >
+            			    <label for="criterioOrden">Criterio para ordenar</label>
+							<select name="criterioOrden" onchange="ordenarColegios(this.value)" id="criterioOrden" >
 								<option value="1">Nombre del Colegio </option>
-								<option value="3">Nombre del Sostenedor</option>
 								<option value="2">Nombre del director</option>
-								<option value="5">Tipo de colegio</option>
+								<option value="3">Nombre del Sostenedor</option>
 								<option value="4">Valor de la mensualidad</option>
+								<option value="5">Tipo de colegio</option>
 								<option value="puntaje">Puntaje SIMCE</option>
 							</select>
-
 						</form>
 
 					</div>
-					<h1>Colegio</h1>
-
 					<div id="colegios">
+						<h3>Cargando...</h3>
 					</div>
+					
+					<div id="ficha">
+					</div>
+					
 					<div>
 						<h3>filtrar</h3>
 						<hr>
@@ -97,6 +99,7 @@
 
 
 		<script src='sql.js'></script>
+		<script src='util.js'></script>
 		<script src='app.js'></script>
 		<script>cargarDB()</script>
 
