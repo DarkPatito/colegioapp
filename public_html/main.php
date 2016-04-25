@@ -1,6 +1,7 @@
 <html>
 
 <head>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
 
@@ -84,12 +85,20 @@
 										<option value="7">sin informacion</option>
 									</select>
 								</td>
+								<td>
+									<label for="valor">Año de la prueba</label>
+									<select name="valor" id="valor">
+										<option value="2010">2010</option>
+										<option value="2011">2011</option>
+										<option value="2012">2012</option>
+									</select>
+								</td>
 							</table>
 						</form>
 
 
 					</div>
-          <div>
+          <div id="chart">
 <canvas id="myChart" width="800" height="400"></canvas>
 
           <script src="Chart.js/dist/Chart.bundle.js">  </script>
