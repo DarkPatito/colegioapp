@@ -48,6 +48,9 @@
 						</form>
 
 					</div>
+					<div id="agregarcol">
+						<button type="button" onClick="document.location.href='adminform.php'" />Agregar</button>
+					</div>
 					<div id="colegios">
 						<h3>Cargando...</h3>
 					</div>
