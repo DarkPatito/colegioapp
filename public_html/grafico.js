@@ -1,7 +1,7 @@
 var Data = {
     labels : [],
     datasets : [
-        {   label :"Promedio SIMCE",
+        {   label :"SIMCE segun Nivel",
             fillColor : 'rgba(91,228,146,0.6)', //COLOR DE LAS BARRAS
             strokeColor : 'rgba(57,194,112,0.7)', //COLOR DEL BORDE DE LAS BARRAS
             highlightFill : 'rgba(73,206,180,0.6)', //COLOR "HOVER" DE LAS BARRAS
@@ -35,6 +35,15 @@ window.onload = function() {
         options: {
             // Elements options apply to all of the options unless overridden in a dataset
             // In this case, we are setting the border of each bar to be 2px wide and green
+            scales: {
+       yAxes: [{
+           display: true,
+           ticks: {
+               suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+               suggestedMax: 500
+           }
+       }]
+   },
 
             responsive: false,
             legend: {
