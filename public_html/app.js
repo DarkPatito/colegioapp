@@ -4,7 +4,7 @@ function onClickColegio() {
 	// Mostrar ficha.
 }
 
-function updateColegios(cols) {
+function actualizarColegios(cols) {
 	var nodo = elemById("colegios");
 	clearNode(nodo);
 
@@ -62,7 +62,7 @@ function cargarDB() {
 		colegioApp.datosColegios = contents[0];
 
 		// Ordenar colegios según nombre
-		ordenarColegios(1);
+		actualizarDatos();
 	};
 	xhr.send();
 }
@@ -99,5 +99,8 @@ function ordenarColegios(arr) {
 function actualizarDatos() {
   var arr = colegioApp.datosColegios.values.slice();
   ordenarColegios(arr);
-  actualizarChart(actualizarFiltro(arr));
+
+	var farr = actualizarFiltro(arr)
+  actualizarChart(farr);
+	actualizarColegios(farr);
 }

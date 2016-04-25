@@ -11,8 +11,18 @@ var Data = {
     ]
 }
 
-function actualizarChart() {
+function actualizarChart(arr) {
+  var nombre = [];
+  var simce = [];
 
+  for (var i = 0; i < arr.length; i++) {
+    nombre.push(arr[i][1]);
+    simce.push(Math.random());
+  }
+
+  Data.labels = nombre;
+  Data.datasets[0].data = simce;
+  window.myBar.update();
 }
 
 window.onload = function() {
