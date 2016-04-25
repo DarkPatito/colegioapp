@@ -101,7 +101,7 @@ window.onload = function() {
     var Data = {
                               labels : ["poto","caca"],
                               datasets : [
-                                  {
+                                  {   label :"Promedio SIMCE",
                                       fillColor : 'rgba(91,228,146,0.6)', //COLOR DE LAS BARRAS
                                       strokeColor : 'rgba(57,194,112,0.7)', //COLOR DEL BORDE DE LAS BARRAS
                                       highlightFill : 'rgba(73,206,180,0.6)', //COLOR "HOVER" DE LAS BARRAS
