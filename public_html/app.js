@@ -67,13 +67,26 @@ function cargarDB() {
 	xhr.send();
 }
 
-function actualizarFiltro(f1,f2) {
+function actualizarFiltro(arr) {
+  var tipo_colegio = elemById("tipoCol").value;
+  var val_colegio = elemById("valor").value;
+  var anno = elemById("annoPrueba").value;
+  return arr.filter(function (el){
+    var filtro1 = true;
+    var filtro2 = true;
+    var filtro3 = true;
+    if (tipo_colegio!=0){
+      filtro1 = (el[5] == tipo_colegio)
+    }
+    if (val_colegio!=0){
+      filtro2= (el[4] == val_colegio)}
 
-return
+    return filtro1 && filtro2 && filtro3;
+  });
 }
 
-function ordenarColegios(key) {
-	var arr = colegioApp.datosColegios.values.slice();
+function ordenarColegios(arr) {
+  var key = elemById("criterioOrden").value;
 	arr.sort(function(a, b) {
 		if (typeof a[key] == 'string')
 			return a[key].localeCompare(b[key]);
@@ -81,5 +94,10 @@ function ordenarColegios(key) {
 			return a[key] - b[key]
 	});
 	console.log("Ordenando criterios segun columna: ", key);
-	updateColegios(arr);
+}
+
+function actualizarDatos() {
+  var arr = colegioApp.datosColegios.values.slice();
+  ordenarColegios(arr);
+  actualizarChart(actualizarFiltro(arr));
 }
