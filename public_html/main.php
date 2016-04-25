@@ -3,7 +3,9 @@
 <head>
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="style.css">
+
 	<title>Listado Colegios</title>
+
 
 </head>
 
@@ -48,16 +50,16 @@
 					<div id="colegios">
 						<h3>Cargando...</h3>
 					</div>
-					
+
 					<div id="ficha">
 					</div>
-					
+
 					<div>
-						<h3>filtrar</h3>
+						<h3>Filtrar</h3>
 						<hr>
 
 
-						<form onsubmit="actualizarFiltro()" id="filterform">
+						<form onchange="actualizarFiltro(tipo_col.value,valor.value)" id="filterform">
 							<table style="width:100%">
 								<td>
 									<label for="tipo_col">Tipo de colegio</label>
@@ -82,14 +84,79 @@
 										<option value="7">sin informacion</option>
 									</select>
 								</td>
-								<td>
-									<input type="submit"  value="Filtrar">
-								</td>
 							</table>
 						</form>
 
 
 					</div>
+          <div>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+          <script src="Chart.js/dist/Chart.bundle.js">  </script>
+          <script>
+
+
+window.onload = function() {
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var Data = {
+                              labels : ["poto","caca"],
+                              datasets : [
+                                  {
+                                      fillColor : 'rgba(91,228,146,0.6)', //COLOR DE LAS BARRAS
+                                      strokeColor : 'rgba(57,194,112,0.7)', //COLOR DEL BORDE DE LAS BARRAS
+                                      highlightFill : 'rgba(73,206,180,0.6)', //COLOR "HOVER" DE LAS BARRAS
+                                      highlightStroke : 'rgba(66,196,157,0.7)', //COLOR "HOVER" DEL BORDE DE LAS BARRAS
+                                      data : [20,20]
+                                  }
+                              ]
+                          }
+    window.myBar = new Chart(ctx, {
+        type: 'bar',
+        data: Data,
+        options: {
+            // Elements options apply to all of the options unless overridden in a dataset
+            // In this case, we are setting the border of each bar to be 2px wide and green
+            
+            responsive: true,
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Mayor a menor puntaje SIMCE'
+            }
+        }
+    });
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+
 
 
 

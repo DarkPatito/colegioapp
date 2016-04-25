@@ -10,12 +10,12 @@ function updateColegios(cols) {
 
 	var table = elem("table");
 	nodo.appendChild(table);
-	
+
 	var thead = table.createTHead();
 	var trow = thead.insertRow(-1);
-	
-	elemAppend(trow, 
-				elemAppend(elem("th"), text("Nombre")), 
+
+	elemAppend(trow,
+				elemAppend(elem("th"), text("Nombre")),
 				elemAppend(elem("th"), text("Director(a)")),
 				elemAppend(elem("th"), text("Sostenedor(a)")),
 				elemAppend(elem("th"), text("Coste")),
@@ -29,13 +29,13 @@ function updateColegios(cols) {
 		var cellDinero = row.insertCell(3);
 		var cellDep = row.insertCell(4);
 		var datos = cols[i];
-		
+
 		cellNombre.appendChild(text(datos[1]));
 		cellNombreDirector.appendChild(text(datos[2]));
 		cellNombreSostenedor.appendChild(text(datos[3]));
 		cellDinero.appendChild(text(datos[6]));
 		cellDep.appendChild(text(datos[7]));
-		
+
 		row.addEventListener("click", function(e) {
 			e.target.datos = datos;
 			onClickColegio.bind(e.target).call();
@@ -51,8 +51,8 @@ function cargarDB() {
 	xhr.onload = function(e) {
 	  var uInt8Array = new Uint8Array(this.response);
 		colegioApp.db = new SQL.Database(uInt8Array);
-	  	
-		var contents = colegioApp.db.exec("SELECT colegio.id, nombreColegio, nombreDirector, nombreSostenedor, " + 
+
+		var contents = colegioApp.db.exec("SELECT colegio.id, nombreColegio, nombreDirector, nombreSostenedor, " +
 		"idMensualidad, idDependencia, " +
 		"mensualidad.descripcion, dependencia.descripcion FROM colegio " +
 		"INNER JOIN mensualidad ON mensualidad.id=colegio.idMensualidad " +
@@ -60,15 +60,16 @@ function cargarDB() {
 
 		console.log(contents[0]);
 		colegioApp.datosColegios = contents[0];
-		
+
 		// Ordenar colegios según nombre
 		ordenarColegios(1);
 	};
 	xhr.send();
 }
 
-function actualizarFiltro() {
+function actualizarFiltro(f1,f2) {
 
+return
 }
 
 function ordenarColegios(key) {
@@ -76,8 +77,8 @@ function ordenarColegios(key) {
 	arr.sort(function(a, b) {
 		if (typeof a[key] == 'string')
 			return a[key].localeCompare(b[key]);
-		else 
-			return a[key] - b[key] 
+		else
+			return a[key] - b[key]
 	});
 	console.log("Ordenando criterios segun columna: ", key);
 	updateColegios(arr);
