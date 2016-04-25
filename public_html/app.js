@@ -19,7 +19,10 @@ function actualizarColegios(cols) {
 				elemAppend(elem("th"), text("Director(a)")),
 				elemAppend(elem("th"), text("Sostenedor(a)")),
 				elemAppend(elem("th"), text("Coste")),
-				elemAppend(elem("th"), text("Dependencia")));
+				elemAppend(elem("th"), text("Dependencia")),
+				elemAppend(elem("th"), text("Año aplicación")),
+				elemAppend(elem("th"), text("Nivel")),
+				elemAppend(elem("th"), text("Puntaje")));
 
 	for (var i = 0; i < cols.length; i++) {
 		var row = table.insertRow(-1);
@@ -28,6 +31,9 @@ function actualizarColegios(cols) {
 		var cellNombreSostenedor = row.insertCell(2);
 		var cellDinero = row.insertCell(3);
 		var cellDep = row.insertCell(4);
+		var cellAnno = row.insertCell(5);
+		var cellNivel = row.insertCell(6);
+		var cellPtje = row.insertCell(7);
 		var datos = cols[i];
 
 		cellNombre.appendChild(text(datos[1]));
@@ -35,6 +41,9 @@ function actualizarColegios(cols) {
 		cellNombreSostenedor.appendChild(text(datos[3]));
 		cellDinero.appendChild(text(datos[6]));
 		cellDep.appendChild(text(datos[7]));
+		cellAnno.appendChild(text(datos[10]));
+		cellNivel.appendChild(text(datos[9]));
+		cellPtje.appendChild(text(datos[8]));
 
 		row.addEventListener("click", function(e) {
 			e.target.datos = datos;
@@ -54,9 +63,12 @@ function cargarDB() {
 
 		var contents = colegioApp.db.exec("SELECT colegio.id, nombreColegio, nombreDirector, nombreSostenedor, " +
 		"idMensualidad, idDependencia, " +
-		"mensualidad.descripcion, dependencia.descripcion FROM colegio " +
+		"mensualidad.descripcion, dependencia.descripcion, " +
+		"AplicaciónPrueba.puntaje, Nivel_Prueba.nivel, AplicaciónPrueba.año FROM colegio " +
 		"INNER JOIN mensualidad ON mensualidad.id=colegio.idMensualidad " +
-		"INNER JOIN dependencia ON dependencia.id=colegio.idDependencia");
+		"INNER JOIN dependencia ON dependencia.id=colegio.idDependencia " +
+		"INNER JOIN AplicaciónPrueba ON AplicaciónPrueba.idColegio=colegio.id "+
+		"INNER JOIN Nivel_Prueba ON Nivel_Prueba.id=AplicaciónPrueba.nivel");
 
 		console.log(contents[0]);
 		colegioApp.datosColegios = contents[0];
