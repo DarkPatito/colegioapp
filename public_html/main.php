@@ -43,7 +43,7 @@
 								<option value="3">Nombre del Sostenedor</option>
 								<option value="4">Valor de la mensualidad</option>
 								<option value="5">Tipo de colegio</option>
-								<option value="puntaje">Puntaje SIMCE</option>
+								<option value="8">Puntaje SIMCE</option>
 							</select>
 						</form>
 
@@ -86,6 +86,15 @@
 									</select>
 								</td>
 								<td>
+									<label for="nivelPrueba">Nivel de prueba</label>
+									<select name="nivelPrueba" id="nivelPrueba">
+										<option value="4º Basico">4° Basico </option>
+										<option value="8º Basico">8° Basico</option>
+										<option value="2º Medio">2° Medio</option>
+
+									</select>
+								</td>
+								<td>
 									<label for="annoPrueba">Año de la prueba</label>
 									<select name="annoPrueba" id="annoPrueba">
 										<option value="2010">2010</option>
@@ -98,18 +107,13 @@
 
 
 					</div>
-          <div id="chart">
-<canvas id="myChart" width="800" height="400"></canvas>
-          </div>
-
-
-
-
-
-				</div>
+        </div>
 			</section>
 		</div>
 
+		<div id="chart">
+			<canvas id="myChart" width="1000" height="400"></canvas>
+		</div>
 
 		<script src='sql.js'></script>
 		<script src='util.js'></script>

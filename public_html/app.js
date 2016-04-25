@@ -82,18 +82,23 @@ function cargarDB() {
 function actualizarFiltro(arr) {
   var tipo_colegio = elemById("tipoCol").value;
   var val_colegio = elemById("valor").value;
+  var nivel = elemById("nivelPrueba").value;
   var anno = elemById("annoPrueba").value;
   return arr.filter(function (el){
     var filtro1 = true;
     var filtro2 = true;
     var filtro3 = true;
-    if (tipo_colegio!=0){
+    var filtro4 = true;
+    if (tipo_colegio!=0)
       filtro1 = (el[5] == tipo_colegio)
-    }
-    if (val_colegio!=0){
-      filtro2= (el[4] == val_colegio)}
 
-    return filtro1 && filtro2 && filtro3;
+    if (val_colegio!=0)
+      filtro2= (el[4] == val_colegio)
+    if (nivel!=0)
+      filtro3= (el[9] == nivel)
+    if (anno!=0)
+      filtro4= (el[10] == anno)
+    return filtro1 && filtro2 && filtro3 && filtro4;
   });
 }
 

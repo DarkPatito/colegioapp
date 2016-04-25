@@ -17,7 +17,7 @@ function actualizarChart(arr) {
 
   for (var i = 0; i < arr.length; i++) {
     nombre.push(arr[i][1]);
-    simce.push(Math.random());
+    simce.push(arr[i][8]);
   }
 
   Data.labels = nombre;
