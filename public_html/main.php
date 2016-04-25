@@ -90,7 +90,7 @@
 
 					</div>
           <div>
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart" width="800" height="400"></canvas>
 
           <script src="Chart.js/dist/Chart.bundle.js">  </script>
           <script>
@@ -116,8 +116,8 @@ window.onload = function() {
         options: {
             // Elements options apply to all of the options unless overridden in a dataset
             // In this case, we are setting the border of each bar to be 2px wide and green
-            
-            responsive: true,
+
+            responsive: false,
             legend: {
                 position: 'top',
             },
