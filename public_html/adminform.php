@@ -32,7 +32,7 @@
         </select><br><br>
         <input type="submit" value="Enviar">
      </form>
-     <button type="button" onClick="document.location.href='adminform.php'" />Click Me!</button>
+     <button type="button" onClick="document.location.href='main.php'" />Volver</button>
    </body>
 
 </html>

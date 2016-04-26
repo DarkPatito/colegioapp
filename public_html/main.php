@@ -1,4 +1,7 @@
 <html>
+<?php
+session_start();
+?>
 
 <head>
 	<meta charset="UTF-8">
@@ -15,19 +18,31 @@
 	<section class="loginform cf">
 		<form name="login" method="POST" action="login.php" accept-charset="utf-8">
 			<ul>
-				<li>
-					<label for="usermail">Email</label>
-					<input type="email" id="usermail" name="usermail" placeholder="yourname@email.com" required>
-				</li>
-				<li>
-					<label for="password">Password</label>
-					<input type="password" id="password" name="password" placeholder="password" required></li>
-					<li>
-						<input type="submit" value="Login">
-					</li>
-				</ul>
-			</form>
-		</section>
+				<?php
+				if(!isset($_SESSION["user"])) {
+					echo"<li>";
+					echo"<label for='usermail'>Email</label>";
+					echo"<input type='email' id='usermail' name='usermail' placeholder='yourname@email.com' required>";
+					echo"</li>";
+					echo"<li>";
+					echo"<label for='password'>Password</label>";
+					echo"<input type='password' id='password' name='password' placeholder='password' required></li>";
+					echo"<li>";
+					echo "<input type='submit' value='Login'>";
+					echo"</li>";
+				}else{
+					echo"<logged>";
+					echo "<p>Bienvendio ";
+					echo $_SESSION['user'];
+					echo"</p>";
+					echo "<form action='logout.php' method='post'>";
+					echo "<input type='submit' value='Logout'>";
+					echo"</logged>";
+				};
+				?>
+			</ul>
+		</form>
+	</section>
 
 
 		<div id="Content">
@@ -49,7 +64,11 @@
 
 					</div>
 					<div id="agregarcol">
-						<button type="button" onClick="document.location.href='adminform.php'" />Agregar</button>
+						<?php
+						if(isset($_SESSION["user"])) {
+						echo "<button type='button' onClick='document.location.href='adminform.php'/>Agregar</button>";
+						};
+						?>
 					</div>
 					<div id="colegios">
 						<h3>Cargando...</h3>

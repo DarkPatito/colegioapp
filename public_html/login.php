@@ -11,10 +11,11 @@
 
 		if ($arr != FALSE) {
 			$_SESSION["user"] = $arr[0];
-			header('www.google.cl');
-			//header('Location: admin.php');
+			header('Location: main.php');
 		}
 
 		header('Location: main.php');
 	}
+	$_SESSION["user"] = $arr[0];
+	header('Location: main.php');
  ?>
