@@ -3,12 +3,27 @@
  {
    function __construct()
    {
-     $this->open('../colegios.sqlite');
+     $this->open('colegios.sqlite');
    }
  }
  $db = new DBCol();
+
+
+
+
+
  function insert(){
-   $stmt= $db->prepare('INSERT INTO Colegio * VALUES (:nC,:nD,:nS,:idM,:idD)');
+     $result = new SQLite3(sprintf("colegios.sqlite"));
+     $rows = $result->query("SELECT COUNT(*) as count FROM Colegio");
+     $row = $rows->fetchArray();
+     $numRows = $row['count'];
+     $result->close();
+
+     $db = new DBCol();
+
+   $stmt= $db->prepare('INSERT INTO Colegio  VALUES (:nId,:nC,:nD,:nS,:idM,:idD)');
+
+     $stmt->bindValue(':nId',$numRows+1);
    $stmt->bindValue(':nC',$_POST['nombrecolegio']);
    $stmt->bindValue(':nD',$_POST['director']);
    $stmt->bindValue(':nS',$_POST['sostenedor']);

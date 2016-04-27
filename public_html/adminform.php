@@ -5,7 +5,6 @@
    </head>
 
    <body>
-
      <form action="actColegio.php" method="POST">
         <label for="nombrecolegio">Nombre Colegio:</label><br>
         <input id="nombrecolegio" type="text" name="nombrecolegio"><br>
