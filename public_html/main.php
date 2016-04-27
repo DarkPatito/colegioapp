@@ -66,7 +66,7 @@ session_start();
 					<div id="agregarcol">
 						<?php
 						if(isset($_SESSION["user"])) {
-						echo "<button type='button' onClick='document.location.href='adminform.php'/>Agregar</button>";
+						echo "<button type='button' onClick='document.location.href=\"adminform.php\"'/>Agregar</button>";
 						};
 						?>
 					</div>
